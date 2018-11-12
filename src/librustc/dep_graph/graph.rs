@@ -130,6 +130,7 @@ impl DepGraph {
         let mut edges = Vec::new();
         for (index, edge_targets) in current_dep_graph.edges.iter_enumerated() {
             let from = current_dep_graph.nodes[index];
+            edges.reserve(edge_targets.len());
             for &edge_target in edge_targets.iter() {
                 let to = current_dep_graph.nodes[edge_target];
                 edges.push((from, to));
